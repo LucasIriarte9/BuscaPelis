@@ -1,3 +1,5 @@
+import results from "../mock/results.json";
+
 // eslint-disable-next-line react/prop-types
 function ListOfMovies({ movies }) {
   return (
@@ -16,8 +18,26 @@ function ListOfMovies({ movies }) {
   );
 }
 
+// eslint-disable-next-line react/prop-types
+function ListOf() {
+  return (
+    <ul className="movies">
+      {
+        // eslint-disable-next-line react/prop-types
+        results.Search.map((movie) => (
+          <li className="movie" key={movie.id}>
+            <h3>{movie.Title}</h3>
+            <p>{movie.Year}</p>
+            <img src={movie.Poster} alt={movie.Title} />
+          </li>
+        ))
+      }
+    </ul>
+  );
+}
+
 function NoMovies() {
-  return <p>No se encontraron peliculas para esta busqueda</p>;
+  return <ListOf />;
 }
 
 // eslint-disable-next-line react/prop-types

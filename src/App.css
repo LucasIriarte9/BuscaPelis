@@ -29,3 +29,12 @@ main {
 .movie {
   text-align: center;
 }
+.butonsito {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.butonsito p {
+  margin: 0;
+  padding: 0;
+}

@@ -10,10 +10,11 @@ function App() {
   const { search, updateSearch, error } = useSearch();
   const { movies, getMovies, loading } = useMovies({ search, sort });
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const debounceGetMovies = useCallback(
     debounce((search) => {
       getMovies({ search });
-    }, 800),
+    }, 1000),
     [getMovies]
   );
 
@@ -44,7 +45,11 @@ function App() {
             type="text"
             placeholder="Avengers, Star Wars..."
           />
-          <input type="checkbox" onChange={handleSort} checked={sort} />
+          <div className="butonsito">
+            <p>Ordenar</p>
+            <input type="checkbox" onChange={handleSort} checked={sort} />
+          </div>
+
           <button type="submit">Buscar</button>
         </form>
         {error && <p className="error">{error}</p>}
